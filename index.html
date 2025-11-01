@@ -6,8 +6,41 @@
 <title>WHITESHADOW-MD Bot</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* LOGIN SCREEN STYLES (keep or move to style.css) */
+  #login { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; z-index:9999; }
+  #login h1 { margin-bottom:15px; color:#00ffcc; }
+  #login-code { width:180px; height:40px; text-align:center; font-size:20px; background:rgba(255,255,255,0.1); color:#00ffcc; border:none; border-radius:10px; letter-spacing:10px; }
+  #login button { width:60px; height:45px; margin:5px; font-size:18px; border:none; background:rgba(255,255,255,0.15); color:#fff; border-radius:10px; cursor:pointer; }
+  #login p { color:#ff6666; margin-top:8px; }
+  #site { display:none; }
+</style>
 </head>
 <body>
+
+<!-- 🔐 LOGIN VIEW -->
+<div id="login">
+  <h1>Enter PIN Code</h1>
+  <input id="login-code" placeholder="••••" disabled><br>
+  <div>
+    <button onclick="loginKey(1)">1</button>
+    <button onclick="loginKey(2)">2</button>
+    <button onclick="loginKey(3)">3</button><br>
+    <button onclick="loginKey(4)">4</button>
+    <button onclick="loginKey(5)">5</button>
+    <button onclick="loginKey(6)">6</button><br>
+    <button onclick="loginKey(7)">7</button>
+    <button onclick="loginKey(8)">8</button>
+    <button onclick="loginKey(9)">9</button><br>
+    <button onclick="loginClear()">C</button>
+    <button onclick="loginKey(0)">0</button>
+    <button onclick="loginConfirm()">OK</button>
+  </div>
+  <p id="msg"></p>
+</div>
+
+<!-- 🌐 MAIN SITE -->
+<div id="site">
   <canvas id="matrix"></canvas>
 
   <header>
@@ -15,7 +48,6 @@
       <img src="https://files.catbox.moe/fyr37r.jpg" alt="WHITESHADOW-MD Logo" class="logo">
       <h1>WHITESHADOW-MD</h1>
       <p>Your ultimate WhatsApp bot. Pair, deploy, and play music easily!</p>
-      
       <div class="buttons">
         <a href="https://github.com/cnw-db/Whiteshadow-vx.git" target="_blank" class="btn repo">View Repo</a>
         <a href="https://heroku.com/deploy?template=https://github.com/cnw-db/Whiteshadow-vx.git" target="_blank" class="btn deploy">Deploy to Heroku</a>
@@ -23,10 +55,9 @@
         <a href="https://whiteshadow-x-pair.onrender.com/pair" target="_blank" class="btn pair">Pair Site 2</a>
         <a href="https://smartautomation-incm.onrender.com/" target="_blank" class="btn pair">Latest Pair Site</a>
       </div>
-      
       <div class="contacts">
-  <a href="https://wa.me/94704896880" target="_blank" class="btn contact-btn">📞 Contact +94 704896880</a>
-</div>
+        <a href="https://wa.me/94704896880" target="_blank" class="btn contact-btn">📞 Contact +94 704896880</a>
+      </div>
     </div>
   </header>
 
@@ -53,10 +84,15 @@
   <footer>
     <p>© 2025 WHITESHADOW-MD. All rights reserved.</p>
   </footer>
+
   <script async src="https://cse.google.com/cse.js?cx=c2a9e06f99c5d47f7"></script>
-<div class="gcse-search"></div>
+  <div class="gcse-search"></div>
 
   <script src="script.js"></script>
   <script src="matrix.js"></script>
+</div>
+
+<!-- External PIN script -->
+<script src="main.js"></script>
 </body>
 </html>
